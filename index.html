@@ -879,19 +879,6 @@
       background: rgba(0, 0, 0, 0.1);
     }
 
-    .svc-arrow {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      font-size: 1.1rem;
-      opacity: 0.4;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .svc-card:hover .svc-arrow {
-      opacity: 1;
-      transform: translate(3px, -3px);
-    }
 
     /* Service icon subtle float animation */
     .svc-icon {
@@ -928,24 +915,22 @@
 
     /* ——— FEATURE SPLIT ——— */
     .feature-split {
-      padding: 6rem 3rem;
+      padding: 8rem 3rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
       align-items: center;
       border-top: 1.5px solid rgba(26, 22, 17, 0.08);
+      text-align: left;
     }
 
     .feature-visual {
-      background: var(--ink);
-      border-radius: 20px;
-      padding: 2.5rem;
-      min-height: 400px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      display: none;
+    }
+
+    .feature-content {
+      max-width: 800px;
+      margin: 0;
     }
 
     .feature-visual-bg {
@@ -956,31 +941,13 @@
         radial-gradient(circle at 20% 80%, rgba(255, 79, 31, 0.2) 0%, transparent 50%);
     }
 
-    .feature-image-slot {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      min-height: 310px;
-      border-radius: 14px;
-      border: 1px dashed rgba(245, 240, 232, 0.35);
-      background: rgba(255, 255, 255, 0.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(245, 240, 232, 0.75);
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 1rem;
-    }
 
     .feature-content h2 {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       letter-spacing: -0.03em;
       line-height: 1.1;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .feature-content h2 em {
@@ -989,9 +956,9 @@
     }
 
     .feature-content p {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: var(--ink2);
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 2rem;
     }
 
@@ -1475,6 +1442,7 @@
       display: flex;
       gap: 1.5rem;
       list-style: none;
+      justify-content: center;
     }
 
     .footer-center a {
@@ -1707,9 +1675,6 @@
         grid-template-columns: 1fr;
       }
 
-      .feature-split {
-        grid-template-columns: 1fr;
-      }
 
       .process-grid {
         grid-template-columns: 1fr 1fr;
@@ -1848,19 +1813,6 @@
         padding: 1.5rem;
       }
 
-      /* Feature split */
-      .feature-visual {
-        min-height: 250px;
-        padding: 1.5rem;
-      }
-
-      .feature-image-slot {
-        min-height: 200px;
-      }
-
-      .feature-content h2 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
-      }
 
       /* Pricing */
       .pricing {
@@ -1933,6 +1885,7 @@
       .footer-center {
         flex-wrap: wrap;
         gap: 1rem;
+        justify-content: center;
       }
 
       .footer-center a {
@@ -2014,7 +1967,7 @@
 
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      Available for projects — Gurugram, India
+      Available for projects — Delhi, India
     </div>
 
     <h1>
@@ -2064,7 +2017,8 @@
     </div>
   </div>
 
-  <!-- SOCIAL PROOF -->
+  <!-- SOCIAL PROOF - commented out for now -->
+  <!--
   <div class="proof reveal">
     <span class="proof-text">Trusted by founders & teams</span>
     <div class="proof-avatars">
@@ -2090,6 +2044,7 @@
       <span>5.0 on Upwork</span>
     </div>
   </div>
+  -->
 
   <!-- SERVICES -->
   <section class="services" id="services">
@@ -2192,7 +2147,6 @@
   <section class="feature-split">
     <div class="feature-visual reveal">
       <div class="feature-visual-bg"></div>
-      <div class="feature-image-slot">Image slot (replace with your screenshot)</div>
     </div>
     <div class="feature-content reveal" style="transition-delay:.15s">
       <h2 class="wipe-reveal" style="display:block"><em data-text="How it works">How it works</em></h2>
@@ -2326,16 +2280,15 @@
   <footer>
     <div class="footer-left">
       <div class="logo">ion<span class="logo-dot">zaza</span></div>
-      <p>AI & Automation · Gurugram, India</p>
+      <p>AI & Automation · Delhi, India</p>
     </div>
     <ul class="footer-center">
       <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">GitHub</a></li>
       <li><a href="#">Upwork</a></li>
       <li><a href="#">Twitter</a></li>
     </ul>
     <div class="footer-right">
-      <p>© 2025 ionzaza.online</p>
+      <p>© 2026 ionzaza.online</p>
       <p style="margin-top:0.3rem">Built with care ☕</p>
     </div>
   </footer>
