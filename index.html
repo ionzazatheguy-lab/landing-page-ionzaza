@@ -132,6 +132,81 @@
       transform: translateY(-1px);
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 200;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(245, 240, 232, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-nav-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav-overlay a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav-overlay a:hover {
+      color: var(--teal);
+    }
+
+    .mobile-nav-overlay .btn-nav {
+      font-size: 1.1rem !important;
+      padding: 0.75rem 2rem;
+    }
+
     /* ——— HERO ——— */
     .hero {
       min-height: 92vh;
@@ -1577,17 +1652,33 @@
     }
 
     /* ——— RESPONSIVE ——— */
+
+    /* Tablet */
     @media (max-width: 900px) {
       nav {
         padding: 0 1.5rem;
       }
 
-      nav ul {
+      .nav-links {
         display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-nav-overlay {
+        display: flex;
       }
 
       .hero {
         padding: 4rem 1.5rem 3rem;
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 8vw, 5rem);
+        line-height: 1;
       }
 
       .hero-bottom {
@@ -1626,12 +1717,23 @@
 
       .cta-section {
         margin: 0 1.5rem 4rem;
-        padding: 2.5rem;
+        padding: 2.5rem 2rem;
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cta-section::before {
+        font-size: 8rem;
+        top: -1rem;
+        right: -1rem;
       }
 
       .pricing {
         padding: 4rem 1.5rem;
+      }
+
+      .section-tag {
+        font-size: 1.5rem;
       }
 
       footer {
@@ -1641,6 +1743,236 @@
 
       .footer-right {
         text-align: left;
+      }
+    }
+
+    /* Phone */
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 1rem;
+        height: 56px;
+      }
+
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+        min-height: 75vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        line-height: 1;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero h1 .outline {
+        -webkit-text-stroke: 1.5px var(--ink);
+      }
+
+      .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-desc {
+        font-size: 0.92rem;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.6rem;
+      }
+
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline {
+        text-align: center;
+        width: 100%;
+      }
+
+      .blob-1 {
+        width: 280px;
+        height: 280px;
+        top: -80px;
+        right: -60px;
+      }
+
+      .blob-2 {
+        width: 220px;
+        height: 220px;
+      }
+
+      /* Proof */
+      .proof {
+        padding: 1.5rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .proof-text {
+        white-space: normal;
+        font-size: 0.75rem;
+      }
+
+      .proof-divider {
+        display: none;
+      }
+
+      .proof-rating {
+        flex-wrap: wrap;
+      }
+
+      /* Services */
+      .services,
+      .process,
+      .feature-split {
+        padding: 3rem 1rem;
+      }
+
+      .section-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .section-tag {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem) !important;
+      }
+
+      .svc-card {
+        padding: 1.5rem;
+      }
+
+      /* Feature split */
+      .feature-visual {
+        min-height: 250px;
+        padding: 1.5rem;
+      }
+
+      .feature-image-slot {
+        min-height: 200px;
+      }
+
+      .feature-content h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+      }
+
+      /* Pricing */
+      .pricing {
+        padding: 3rem 1rem;
+      }
+
+      .price-card {
+        padding: 1.5rem;
+      }
+
+      .price-num {
+        font-size: 2.5rem;
+      }
+
+      /* Process */
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step {
+        padding: 1.5rem;
+      }
+
+      .step-num {
+        font-size: 3rem;
+      }
+
+      /* CTA */
+      .cta-section {
+        margin: 0 0.75rem 3rem;
+        padding: 2rem 1.25rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        border-radius: 18px;
+      }
+
+      .cta-section::before {
+        font-size: 5rem;
+        top: -0.5rem;
+        right: -0.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+        line-height: 1.15;
+      }
+
+      .cta-right p {
+        font-size: 0.88rem;
+      }
+
+      .cta-form input,
+      .cta-form select {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .cta-form button {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-center {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-center a {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+
+      /* Ticker */
+      .ticker {
+        padding: 0.65rem 0;
+      }
+
+      .ticker-item {
+        font-size: 0.7rem;
+        padding: 0 1.2rem;
+      }
+
+      /* Cursor follower - hide on touch */
+      .cursor-follower-hide {
+        display: none !important;
+      }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 380px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cta-section {
+        margin: 0 0.5rem 2rem;
+        padding: 1.5rem 1rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.4rem !important;
       }
     }
   </style>
@@ -1660,7 +1992,20 @@
       <li><a href="#process">Process</a></li>
       <li><a href="#contact" class="btn-nav">Get in touch</a></li>
     </ul>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="#process" onclick="closeMobileNav()">Process</a>
+    <a href="#contact" class="btn-nav" onclick="closeMobileNav()">Get in touch</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -2424,6 +2769,28 @@
           msg.className = 'cta-note';
         }, 4000);
       }
+    }
+
+    // Mobile nav toggle
+    function toggleMobileNav() {
+      const hamburger = document.querySelector('.hamburger');
+      const overlay = document.getElementById('mobileNav');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function closeMobileNav() {
+      const hamburger = document.querySelector('.hamburger');
+      const overlay = document.getElementById('mobileNav');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Hide cursor follower on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      cursorFollower.style.display = 'none';
     }
   </script>
 </body>
