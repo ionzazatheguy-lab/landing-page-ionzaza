@@ -26,6 +26,12 @@
       --card4: #e8a000;
     }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: light;
+      }
+    }
+
     *,
     *::before,
     *::after {
@@ -1025,7 +1031,7 @@
     .price-card {
       border-radius: 16px;
       padding: 2rem;
-      background: var(--ink);
+      background: var(--teal);
       border: 1.5px solid rgba(255, 255, 255, 0.08);
       position: relative;
       opacity: 0;
@@ -1061,28 +1067,11 @@
     }
 
     .price-card.featured {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .price-card.featured .price-desc {
       color: rgba(26, 22, 17, 0.65);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--ink);
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.75rem;
-      border-radius: 100px;
     }
 
     .price-name {
@@ -1117,6 +1106,14 @@
       font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 500;
       opacity: 0.6;
+    }
+
+    .price-build {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
     }
 
     .price-desc {
